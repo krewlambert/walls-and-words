@@ -1,0 +1,11 @@
+# Never commit API keys or secrets
+.env
+.env.local
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
