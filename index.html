@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WALLS & WORDS — NYC Ephemera Archive</title>
+  <title>Anarchitext</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <header>
-    <h1>Walls &amp; Words</h1>
+    <h1>Anarchitext</h1>
     <span>NYC Ephemera Archive</span>
   </header>
 
@@ -20,12 +20,13 @@
     <button data-borough="Queens">Queens</button>
     <button data-borough="Bronx">Bronx</button>
     <button data-borough="Staten Island">Staten Island</button>
+    <button class="active">About</button>
   </nav>
 
   <button id="toggle-upload">+ Submit a Find</button>
 
   <div id="upload-panel">
-    <h2>Submit a Find</h2>
+    <h2>Submit</h2>
 
     <div id="drop-zone">
       <p>Drop image here or click to browse</p>
@@ -41,12 +42,13 @@
         <option value="Queens">Queens</option>
         <option value="Bronx">Bronx</option>
         <option value="Staten Island">Staten Island</option>
+        
       </select>
       <input type="text" id="location-input" placeholder="Street / neighborhood (optional)" />
     </div>
 
     <div class="form-row">
-      <textarea id="caption-input" placeholder="What did you find? Add context, a story, or just a description..."></textarea>
+      <textarea id="caption-input" placeholder="Add context, a story, or whatever you want..."></textarea>
     </div>
 
     <div class="submit-row">
