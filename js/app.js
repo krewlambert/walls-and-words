@@ -1,8 +1,3 @@
-const SUPABASE_URL  = 'https://qqfjctduvnufxqhkmvor.supabase.co'
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFxZmpjdGR1dm51ZnhxaGttdm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5MDcxODYsImV4cCI6MjA5MjQ4MzE4Nn0.PekaCxOeS6dS2kfXL_W_BSgBgsODCyYl4uinLru-VpU'
-// ─────────────────────────────────────────────────────
-// CONFIG — paste your Supabase credentials here
-// ─────────────────────────────────────────────────────
 const { createClient } = supabase
 const db = createClient(
   'https://qqfjctduvnufxqhkmvor.supabase.co',
