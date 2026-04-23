@@ -4,6 +4,10 @@ const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 // CONFIG — paste your Supabase credentials here
 // ─────────────────────────────────────────────────────
 const { createClient } = supabase
+const db = createClient(
+  'https://qqfjctduvnufxqhkmvor.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // your real anon key from Supabase
+)
 // ── State ──────────────────────────────────────────
 let activeBorough = 'all'
 let selectedFile  = null
