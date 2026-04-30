@@ -32,7 +32,6 @@ header h1 {
 
 header span {
   font-size: 0.7rem;
-  opacity: 0.5;
   letter-spacing: 0.1em;
 }
 
@@ -198,6 +197,7 @@ nav button.active {
 }
 
 /* ── IMAGE GRID ── */
+/* CSS columns — natural masonry, captions sit flush below each image */
 #grid {
   columns: 3;
   column-gap: 2px;
@@ -212,23 +212,29 @@ nav button.active {
   #grid { columns: 1; }
 }
 
+/* Each card stays in one column, never breaks across */
 .card {
   break-inside: avoid;
   margin-bottom: 2px;
   background: #fff;
   cursor: pointer;
-  position: relative;
   overflow: hidden;
+  display: inline-block; /* keeps card width flush to column */
+  width: 100%;
 }
 
+/* Image fills card width, height is fully natural — no cropping */
 .card img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
+/* Caption sits directly below the image, aligned to card width */
 .card .meta {
   padding: 10px 12px;
   border-top: 1px solid #e0ddd6;
+  width: 100%;
 }
 
 .card .borough-tag {
@@ -278,6 +284,7 @@ nav button.active {
 
 #lightbox-inner img {
   width: 100%;
+  height: auto;
   display: block;
 }
 

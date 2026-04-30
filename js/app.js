@@ -1,8 +1,9 @@
 const { createClient } = supabase
 const db = createClient(
   'https://qqfjctduvnufxqhkmvor.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFxZmpjdGR1dm51ZnhxaGttdm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5MDcxODYsImV4cCI6MjA5MjQ4MzE4Nn0.PekaCxOeS6dS2kfXL_W_BSgBgsODCyYl4uinLru-VpU' // your real anon key from Supabase
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFxZmpjdGR1dm51ZnhxaGttdm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5MDcxODYsImV4cCI6MjA5MjQ4MzE4Nn0.PekaCxOeS6dS2kfXL_W_BSgBgsODCyYl4uinLru-VpU'
 )
+
 // ── State ──────────────────────────────────────────
 let activeBorough = 'all'
 let selectedFile  = null
@@ -83,7 +84,6 @@ submitBtn.addEventListener('click', async () => {
   statusMsg.textContent = 'Compressing...'
 
   try {
-    // Compress image in the browser before uploading
     const compressed = await imageCompression(selectedFile, {
       maxSizeMB: 0.4,
       maxWidthOrHeight: 1600
@@ -91,22 +91,18 @@ submitBtn.addEventListener('click', async () => {
 
     statusMsg.textContent = 'Uploading...'
 
-    // Create a unique filename
     const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`
 
-    // Upload to Supabase Storage
     const { error: uploadError } = await db.storage
       .from('images')
       .upload(filename, compressed, { contentType: 'image/jpeg' })
 
     if (uploadError) throw uploadError
 
-    // Get the public URL of the uploaded file
     const { data: { publicUrl } } = db.storage
       .from('images')
       .getPublicUrl(filename)
 
-    // Save metadata to the database
     const { error: dbError } = await db.from('submissions').insert({
       image_url: publicUrl,
       borough:   boroughSel.value,
@@ -116,7 +112,6 @@ submitBtn.addEventListener('click', async () => {
 
     if (dbError) throw dbError
 
-    // Reset the form
     statusMsg.textContent    = 'Submitted! ✓'
     selectedFile             = null
     previewImg.style.display = 'none'
@@ -129,7 +124,6 @@ submitBtn.addEventListener('click', async () => {
 
     setTimeout(() => { statusMsg.textContent = '' }, 3000)
 
-    // Refresh grid
     loadImages()
 
   } catch (err) {
@@ -165,6 +159,7 @@ async function loadImages() {
   data.forEach(item => {
     const card = document.createElement('div')
     card.className = 'card'
+
     card.innerHTML = `
       <img src="${item.image_url}" loading="lazy" alt="${item.caption || ''}" />
       <div class="meta">
@@ -173,6 +168,7 @@ async function loadImages() {
         ${item.location ? `<div class="location-tag">${item.location}</div>` : ''}
       </div>
     `
+
     card.addEventListener('click', () => openLightbox(item))
     grid.appendChild(card)
   })
@@ -180,11 +176,11 @@ async function loadImages() {
 
 // ── Lightbox ───────────────────────────────────────
 function openLightbox(item) {
-  document.getElementById('lightbox-img').src             = item.image_url
-  document.getElementById('lightbox-borough').textContent = item.borough
-  document.getElementById('lightbox-caption').textContent = item.caption  || ''
+  document.getElementById('lightbox-img').src              = item.image_url
+  document.getElementById('lightbox-borough').textContent  = item.borough
+  document.getElementById('lightbox-caption').textContent  = item.caption  || ''
   document.getElementById('lightbox-location').textContent = item.location || ''
-  document.getElementById('lightbox-date').textContent    =
+  document.getElementById('lightbox-date').textContent     =
     new Date(item.created_at).toLocaleDateString('en-US', {
       year: 'numeric', month: 'long', day: 'numeric'
     })
