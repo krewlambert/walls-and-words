@@ -4,11 +4,11 @@ const db = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFxZmpjdGR1dm51ZnhxaGttdm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5MDcxODYsImV4cCI6MjA5MjQ4MzE4Nn0.PekaCxOeS6dS2kfXL_W_BSgBgsODCyYl4uinLru-VpU'
 )
 
-// ── State ──────────────────────────────────────────
+
 let activeBorough = 'all'
 let selectedFile  = null
 
-// ── DOM References ─────────────────────────────────
+
 const grid        = document.getElementById('grid')
 const loading     = document.getElementById('loading')
 const empty       = document.getElementById('empty')
@@ -24,7 +24,7 @@ const toggleBtn   = document.getElementById('toggle-upload')
 const uploadPanel = document.getElementById('upload-panel')
 const lightbox    = document.getElementById('lightbox')
 
-// ── Borough Navigation ─────────────────────────────
+
 document.getElementById('borough-nav').addEventListener('click', e => {
   if (!e.target.dataset.borough) return
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'))
@@ -33,7 +33,7 @@ document.getElementById('borough-nav').addEventListener('click', e => {
   loadImages()
 })
 
-// ── Toggle Upload Panel ────────────────────────────
+
 toggleBtn.addEventListener('click', () => {
   uploadPanel.classList.toggle('open')
   toggleBtn.textContent = uploadPanel.classList.contains('open')
@@ -41,7 +41,7 @@ toggleBtn.addEventListener('click', () => {
     : '+ Submit a Find'
 })
 
-// ── File Selection & Drag-and-Drop ─────────────────
+
 dropZone.addEventListener('click', () => fileInput.click())
 
 dropZone.addEventListener('dragover', e => {
@@ -71,14 +71,14 @@ function handleFileSelect(file) {
   checkSubmitReady()
 }
 
-// ── Enable submit only when file + borough selected ─
+
 boroughSel.addEventListener('change', checkSubmitReady)
 
 function checkSubmitReady() {
   submitBtn.disabled = !(selectedFile && boroughSel.value)
 }
 
-// ── Submit Upload ──────────────────────────────────
+
 submitBtn.addEventListener('click', async () => {
   submitBtn.disabled = true
   statusMsg.textContent = 'Compressing...'
@@ -132,7 +132,7 @@ submitBtn.addEventListener('click', async () => {
   }
 })
 
-// ── Load & Render Images ───────────────────────────
+
 async function loadImages() {
   grid.innerHTML        = ''
   loading.style.display = 'block'
@@ -174,7 +174,7 @@ async function loadImages() {
   })
 }
 
-// ── Lightbox ───────────────────────────────────────
+
 function openLightbox(item) {
   document.getElementById('lightbox-img').src              = item.image_url
   document.getElementById('lightbox-borough').textContent  = item.borough
@@ -195,5 +195,5 @@ lightbox.addEventListener('click', e => {
   if (e.target === lightbox) lightbox.classList.remove('open')
 })
 
-// ── Init ───────────────────────────────────────────
+
 loadImages()

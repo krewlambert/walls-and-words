@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
 }
 
-/* ── HEADER ── */
+
 header {
   border-bottom: 2px solid #1a1a1a;
   padding: 18px 24px;
@@ -35,7 +35,7 @@ header span {
   letter-spacing: 0.1em;
 }
 
-/* ── BOROUGH NAV ── */
+
 nav {
   display: flex;
   gap: 0;
@@ -66,7 +66,7 @@ nav button.active {
   color: #f2f0eb;
 }
 
-/* ── TOGGLE UPLOAD BUTTON ── */
+
 #toggle-upload {
   display: block;
   width: 100%;
@@ -87,7 +87,7 @@ nav button.active {
   background: #e0ddd6;
 }
 
-/* ── UPLOAD PANEL ── */
+
 #upload-panel {
   border-bottom: 2px solid #1a1a1a;
   padding: 24px;
@@ -139,7 +139,7 @@ nav button.active {
   resize: vertical;
 }
 
-/* ── DROP ZONE ── */
+
 #drop-zone {
   border: 2px solid #1a1a1a;
   padding: 32px;
@@ -166,7 +166,7 @@ nav button.active {
   display: none;
 }
 
-/* ── SUBMIT ROW ── */
+
 .submit-row {
   display: flex;
   align-items: center;
@@ -196,8 +196,7 @@ nav button.active {
   opacity: 0.6;
 }
 
-/* ── IMAGE GRID ── */
-/* CSS columns — natural masonry, captions sit flush below each image */
+
 #grid {
   columns: 3;
   column-gap: 2px;
@@ -212,25 +211,25 @@ nav button.active {
   #grid { columns: 1; }
 }
 
-/* Each card stays in one column, never breaks across */
+
 .card {
   break-inside: avoid;
   margin-bottom: 2px;
   background: #fff;
   cursor: pointer;
   overflow: hidden;
-  display: inline-block; /* keeps card width flush to column */
+  display: inline-block; 
   width: 100%;
 }
 
-/* Image fills card width, height is fully natural — no cropping */
+
 .card img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Caption sits directly below the image, aligned to card width */
+
 .card .meta {
   padding: 10px 12px;
   border-top: 1px solid #e0ddd6;
@@ -256,7 +255,7 @@ nav button.active {
   margin-top: 4px;
 }
 
-/* ── LIGHTBOX ── */
+
 #lightbox {
   display: none;
   position: fixed;
@@ -329,7 +328,7 @@ nav button.active {
   font-family: 'Courier New', monospace;
 }
 
-/* ── EMPTY / LOADING STATES ── */
+
 #empty {
   text-align: center;
   padding: 80px 24px;
