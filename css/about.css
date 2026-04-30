@@ -67,12 +67,11 @@ header img {
 }
 
 .quote-text {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 800;
   line-height: 2;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  white-space: pre-line;
   margin-bottom: 16px;
 }
 
