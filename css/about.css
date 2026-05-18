@@ -73,13 +73,15 @@ header img {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 16px;
+  color: #000000;
 }
 
 .quote-attr {
   font-size: 1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.4;
+  
+  color: #000000;
 }
 
 .book-title {
@@ -91,6 +93,7 @@ header img {
 .book-meta {
   font-size: 0.72rem;
   line-height: 1.8;
+  color: #000000;
   letter-spacing: 0.05em;
 }
 
@@ -138,7 +141,6 @@ header img {
   font-size: 0.75rem !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase;
-  opacity: 0.5;
   padding-top: 8px;
 }
 

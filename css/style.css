@@ -46,7 +46,7 @@ nav {
 nav button {
   background: none;
   border: none;
-  border-right: 1px solid #1a1a1a;
+  border-right: 1px solid #000000;
   padding: 10px 20px;
   font-family: 'Courier New', monospace;
   font-size: 0.75rem;
@@ -118,7 +118,7 @@ nav button.active {
 .form-row textarea {
   font-family: 'Courier New', monospace;
   font-size: 0.8rem;
-  border: 1px solid #1a1a1a;
+  border: 1px solid #000000;
   background: #f2f0eb;
   padding: 8px 12px;
   outline: none;
@@ -240,18 +240,19 @@ nav button.active {
   font-size: 0.62rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.45;
+  color:#000000;
   margin-bottom: 4px;
 }
 
 .card .caption {
   font-size: 0.78rem;
+  color:#000000;
   line-height: 1.5;
 }
 
 .card .location-tag {
   font-size: 0.65rem;
-  opacity: 0.4;
+  color:#000000;
   margin-top: 4px;
 }
 
